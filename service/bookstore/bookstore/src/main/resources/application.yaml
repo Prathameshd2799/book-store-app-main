@@ -1,11 +1,13 @@
 spring:
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
-server:
-  port: 8080
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
 
 cors:
-  allowed-origins: "*"
+  allowed-origins: ${FRONTEND_URL}
